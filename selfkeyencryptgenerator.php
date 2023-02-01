@@ -26,7 +26,7 @@ class selfkeyencrypt
     
     function datefactor_()
     {
-        return \$this->isdate_ ? date(preg_replace('/[^(FMmnjdDYy\-\s)]/', \$this->dateformat_), strtotime(((\$this->sign_ == -1)?'-':'').\$this->days_.' days')) : '';
+        return \$this->isdate_ ? date(preg_replace('/[^(FMmnjdDYy\-\s)]/', \$this->dateformat_, ''), strtotime(((\$this->sign_ == -1)?'-':'').\$this->days_.' days')) : '';
     }
     
     function keyfactor_()
