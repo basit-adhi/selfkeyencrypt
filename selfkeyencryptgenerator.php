@@ -1,8 +1,9 @@
 <?php
 //run: https://service.unisayogya.ac.id/selfkeyencryptgenerator.php
+//source: https://github.com/basit-adhi/selfkeyencrypt/blob/main/selfkeyencryptgenerator.php
 //generate selfkeyencrypt class
 $randomString='D,';$characters='Yy';$randomString.=$characters[rand(0, strlen($characters) - 1)];$characters='- ';$randomString.=$characters[rand(0, strlen($characters) - 1)];$characters='FMmn';$randomString.=$characters[rand(0, strlen($characters) - 1)];$characters='- ';$randomString.=$characters[rand(0, strlen($characters) - 1)];$characters='jd';$randomString.=$characters[rand(0, strlen($characters) - 1)];
-echo "
+echo "<code>
 class selfkeyencrypt
 {
     //https://www.php.net/manual/en/function.openssl-encrypt.php
@@ -50,7 +51,6 @@ class selfkeyencrypt
         \$ciphertext_raw = openssl_encrypt(\$data, \$this->method_, \$k, OPENSSL_RAW_DATA , \$iv);
         \$hmac           = hash_hmac('sha256', \$ciphertext_raw, \$k, \$as_binary=true);
         return base64_encode( \$iv.\$hmac.\$ciphertext_raw ).\$this->keydigit_;
-
     }
     
     function decrypt_(\$data)
@@ -76,8 +76,27 @@ class selfkeyencrypt
         \$this->keydigit_ = \$kd;
     }
 }
-
 //\$a = new selfkeyencrypt();
 //\$data = \$a->encrypt_('test');
 //echo \$a->decrypt_(\$data);
+</code>
 ";
+?>
+<style>
+    code{
+        font-family: monospace;
+        background: #303030;
+        color: #f1f1f1;
+        padding: 10px 16px;
+        border-radius: 2px;
+        border-top: 4px solid #00aeef;
+        -moz-box-shadow: inset 0 0 10px #000;
+        box-shadow: inset 0 0 10px #000;
+        display: block;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        direction: ltr;
+        font-size: medium;
+        word-break: break-word;
+    }
+</style>
